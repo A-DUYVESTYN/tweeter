@@ -1,0 +1,27 @@
+/* navbar styles */
+
+nav {
+  height: 120px;
+  width: auto;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 1.5em;
+  z-index: 1
+}
+
+.newTweet {
+  /* display: flex;
+  justify-content: right; */
+  float: right
+
+}
+
+/* angle double down arrow from Font Awesome
+TODO: centre it below newTweet text */
+.fa-angles-down {
+  /* display: flex;
+  justify-content: right; */
+  float: right;
+  padding: 0em 3em;
+  color:red;
+}

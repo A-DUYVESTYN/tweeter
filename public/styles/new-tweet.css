@@ -1,0 +1,31 @@
+.new-tweet {
+  font-weight: bold;
+  display:flex;
+  flex-direction: column;
+}
+
+form {
+  width:100%;
+}
+
+textarea {
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid grey; 
+  width:100%;
+  font-family: 'Source Sans Pro', Sans-Serif;
+}
+
+button {
+  font-family: 'Bungee', Sans-Serif;
+  color: #FFFFFF;
+  background-color: #4056A1;
+}
+.counter {
+  font-family: 'Bungee', Sans-Serif; 
+  float: right;
+}
+.counterRed {
+  color: red;
+}
+

@@ -9,11 +9,9 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
 /*
  * Global layout stuff
  */
-
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -26,8 +24,17 @@ body {
 
 body {
   font-family: 'Source Sans Pro', Sans-Serif;
+
 }
 
 .logo {
   font-family: 'Bungee', Sans-Serif;
 }
+main {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+

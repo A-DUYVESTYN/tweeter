@@ -14,9 +14,8 @@ $(document).ready(function() {
     $(counterRef).html(charCount)
 
     charCount < 0 ? 
-    $(counterRef).addClass("counterRed") : 
-    $(counterRef).removeClass("counterRed")
+    $(counterRef).addClass("error") : 
+    $(counterRef).removeClass("error")
 
   });
-
 });

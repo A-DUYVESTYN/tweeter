@@ -11,6 +11,7 @@ article.tweet header{
   justify-content: space-between;
   height: auto;
   background-color: transparent;
+  margin: 10px;
   }
 
 article.tweet header h3{
@@ -42,7 +43,6 @@ article.tweet footer{
 article.tweet footer ul{
   color:#4056A1;
   margin: 0;
-
 }
 article.tweet footer ul i:hover{
   color:goldenrod;

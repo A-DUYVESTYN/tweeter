@@ -29,3 +29,16 @@ button {
   color: red;
 }
 
+.errorStyle {
+  color: red;
+  font-weight: bold;
+  border: solid red;
+  text-align: center;
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+}
+
+@keyframes animate-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

@@ -4,13 +4,13 @@ $(document).ready(function() {
 
     let charCount = 140 - $(this).val().length;
 
-    let counterRef = $(this).parents("form").find("output")
+    let counterRef = $(this).parents("form").find("output");
 
-    $(counterRef).html(charCount)
+    $(counterRef).html(charCount);
 
     charCount < 0 ? 
     $(counterRef).addClass("error") : 
-    $(counterRef).removeClass("error")
+    $(counterRef).removeClass("error");
 
   });
 });

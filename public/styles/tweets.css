@@ -1,8 +1,17 @@
+.container {
+  max-width: 800px;
+}
+
 article.tweet{
   background-color: transparent;
   border: 2px solid #545149;
   margin: 20px 0px;
   padding: 5px;
+}
+
+article.tweet:hover {
+  transition: box-shadow .3s;
+  box-shadow: 0 0 0.5em #545149; 
 }
 
 article.tweet header{
@@ -17,9 +26,16 @@ article.tweet header{
 article.tweet header h3{
   font-weight: lighter;
   margin: 10px;
+  display: flex;
+  align-items:center;
   }
+  article.tweet header h3 img{
+    margin: 0 15px 0 0;
+
+    }
+
 .userHandle {
-  color: lightsteelblue;
+  color: #4056A1;
   }
 
 article.tweet p{
@@ -28,7 +44,7 @@ article.tweet p{
   padding: 20px 10px 5px 10px;
   border-bottom: 4px solid #545149; 
   font-weight: 600;
-
+  overflow-wrap: anywhere;
 }
 
 article.tweet footer{
@@ -47,6 +63,5 @@ article.tweet footer ul{
 article.tweet footer ul i:hover{
   color:goldenrod;
   cursor: pointer;
-
 }
 

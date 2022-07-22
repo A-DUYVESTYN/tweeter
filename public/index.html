@@ -4,7 +4,7 @@
 <head>
   <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
-
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     type="text/css" />
@@ -35,61 +35,39 @@
     <span class="newTweet"><strong>Write</strong> a new Tweet
       <div><i class="fa-solid fa-angles-down"></i> </div>
     </span>
-
   </nav>
 
-  <header>
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div>
-      <h2>Your Name</h2>
-    </div>
-  </header>
-
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <form action="/tweets" method="POST">
-        <label for="tweet-text">What are you humming about?</label>
-        <div>
-          <textarea name="text" id="tweet-text"></textarea>
-        </div>
-        <div>
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
-
-    <section id="tweets-container">
-      <!-- <article class="tweet">
-        <header>
-          
-          <h3><img>~img~</img>Newton</h3>
-          <h3 class="userHandle">@someuser</h3>
-        </header>
-        <p>
-          Tweet palceholder text
-        </p>
-        <footer>
-          <time>
-            date(days ago)
-          </time>
-          <ul>
-          <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-retweet"></i>
-          <i class="fa-solid fa-heart"></i>
-          </ul>
-        </footer>
-      </article> -->
-
-    </section>
-
-
-  </main>
+  <div id="pageContent">
+    <header class="userHeader">
+      <div>
+        <img src="/images/profile-hex.png">
+      </div>
+      <div>
+        <h2>Hubert Cumberdale</h2>
+      </div>
+    </header>
+  
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <section class="new-tweet">
+        <form action="/tweets" method="POST">
+          <label for="tweet-text">What are you humming about?</label>
+          <div class="errorMsg"></div>
+          <div>
+            <textarea name="text" id="tweet-text"></textarea>
+          </div>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+  
+      <section id="tweets-container">
+      </section>
+  
+    </main>
+  </div>
 </body>
 
 </html>

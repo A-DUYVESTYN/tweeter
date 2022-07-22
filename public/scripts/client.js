@@ -4,11 +4,20 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// const { response } = require("express");
+
 
 $(document).ready(function () {
 
+  // escaping text function for unsafe inputs. e.g. <script>alert('malicious code!');</script>
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  // create tweet elements
   const createTweetElement = function (tweetObj) {
-    /* Your code for creating the tweet element */
     const tweetArticle = $(`
     <article class="tweet">
     <header>
@@ -16,7 +25,7 @@ $(document).ready(function () {
       <h3 class="userHandle">${tweetObj.user.handle}</h3>
     </header>
     <p>
-    ${tweetObj.content.text}
+    ${escape(tweetObj.content.text)}
     </p>
     <footer>
       <time>
@@ -29,60 +38,60 @@ $(document).ready(function () {
       </ul>
     </footer>
   </article>`
-    )
+    );
     return tweetArticle;
-  }
+  };
 
   const renderTweets = function (tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container- NOW PREPENDS TO SHOW NEW TWEETS FIRST
+    // takes return value and PREPENDS it to the tweets container
     for (const tweetObj of tweets) {
       const tweetElement = createTweetElement(tweetObj);
       $('#tweets-container').prepend(tweetElement);
-    }
-  }
-  const reloadTweets = function () {
-    $('#tweets-container').empty()
-    loadTweets()
-  }
+    };
+  };
 
+  //initialze jquery variables for tweet submission
   const $submitTweet = $('.new-tweet form');
   const $tweetText = $('#tweet-text');
-  
+
   $submitTweet.submit((event) => {
+    $('.errorMsg').empty()
     event.preventDefault()
     if (!$tweetText.val()) {
-      return alert("Invalid tweet!")
-    }
+      return $('.errorMsg').append("<div class= errorStyle>Invalid tweet!</div>");
+    };
     if ($tweetText.val().length > 140) {
-      return alert("Exceeded tweet character limit!")
-    }
-    console.log($($submitTweet).serialize()) //DEBUG
+      return $('.errorMsg').append("<div class= errorStyle> Exceeded tweet character limit!</div>");
+    };
 
     $.ajax({
-      type: "POST",
-      url:`/tweets`,
+      method: "POST",
+      url: `/tweets`,
       data: $($submitTweet).serialize(),
-    })
-    
-    reloadTweets() // blunt method to show the most recent tweet by clearing and reloading the database, noticable delay
-  })
-  
-  const loadTweets = function() {
+    }).then(() => {
+      $.ajax(
+        `/tweets`,
+        { method: "GET" }
+      ).then((res) => {
+        $('#tweet-text').val('')
+        $('.counter').val(140)
+        renderTweets([res[res.length - 1]])
+      });
+    });
+  });
+
+  const loadTweets = function () {
     $.ajax({
-      url:`/tweets`,
+      url: `/tweets`,
       success: (response) => {
         renderTweets(response)
       },
       error: (error) => {
         console.error(error);
       }
-    })
-  }
-  
-  loadTweets()
+    });
+  };
+  loadTweets();
 });
-
-
-

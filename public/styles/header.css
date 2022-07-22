@@ -9,3 +9,15 @@ header {
   background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
+
+@media only screen and (min-width: 1024px) {
+  .userHeader {
+    margin: 160px 1.5em 1.5em 1.5em;
+    width: 60%;
+    height: 80%;
+    max-width: 600px;
+  }
+  .userHeader div {
+    margin: 0.5em;
+  }
+}
